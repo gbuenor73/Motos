@@ -2,47 +2,41 @@ package br.com.bueno.motocompare.controllers;
 
 import br.com.bueno.motocompare.model.VeiculoModel;
 import br.com.bueno.motocompare.utils.AbstractObject;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @Builder
+@Getter
 public class Veiculo extends AbstractObject {
 
+    @JsonProperty("id_veiculo")
     private Integer idVeiculo;
 
+    @JsonProperty("id_fabricante")
     private Integer idFabricante;
+
+    @JsonProperty("nome_veiculo")
     private String nomeVeiculo;
+
+    @JsonProperty("modelo")
     private String modelo;
+
+    @JsonProperty("ano")
     private String ano;
+
+    @JsonProperty("cilindrada")
     private Integer cilindrada;
+
+    @JsonProperty("cavalos")
     private Integer cavalos;
+
+    @JsonProperty("torque")
     private Integer torque;
+
+    @JsonProperty("imagem")
     private String imagem;
 
-    public VeiculoModel convertToModel() {
-        return VeiculoModel.builder()
-                .idVeiculo(this.idVeiculo)
-                .idFabricante(this.idFabricante)
-                .nomeVeiculo((this.nomeVeiculo))
-                .modelo(this.modelo)
-                .ano(this.ano)
-                .cilindrada(this.cilindrada)
-                .cavalos(this.cavalos)
-                .torque(this.torque)
-                .imagem(this.imagem)
-                .build();
-    }
-
-    public Veiculo revertFromModel(VeiculoModel veiculoModel) {
-        return Veiculo.builder()
-                .idVeiculo(veiculoModel.getIdVeiculo())
-                .idFabricante(veiculoModel.getIdFabricante())
-                .nomeVeiculo(veiculoModel.getNomeVeiculo())
-                .modelo(veiculoModel.getModelo())
-                .ano(veiculoModel.getAno())
-                .cilindrada(veiculoModel.getCilindrada())
-                .cavalos(veiculoModel.getCavalos())
-                .torque(veiculoModel.getTorque())
-                .imagem(veiculoModel.getImagem())
-                .build();
-    }
 }

@@ -1,5 +1,6 @@
 package br.com.bueno.motocompare.services;
 
+import br.com.bueno.motocompare.controllers.Fabricante;
 import br.com.bueno.motocompare.model.FabricanteModel;
 import br.com.bueno.motocompare.repository.FabricantesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,15 +15,18 @@ public class FabricantesService {
     @Autowired
     private FabricantesRepository repository;
 
-    public FabricanteModel buscaFabricante(Integer id) {
-        return this.repository.findById(id).orElseThrow();
+    public Fabricante buscaFabricante(Integer id) {
+        FabricanteModel fabricanteModel = this.repository.findById(id).orElseThrow();
+        return fabricanteModel.convertToDomain();
     }
 
-    public List<FabricanteModel> buscaFabricantes() {
-        return this.repository.findAll();
+    public List<Fabricante> buscaFabricantes() {
+        List<FabricanteModel> todosFabricantes = this.repository.findAll();
+        return todosFabricantes.stream().map(FabricanteModel::convertToDomain).toList();
     }
 
-    public FabricanteModel insereNovoFabricante(FabricanteModel fabricanteModel) {
-        return this.repository.save(fabricanteModel);
+    public Fabricante insereNovoFabricante(FabricanteModel fabricanteModel) {
+        FabricanteModel model = this.repository.save(fabricanteModel);
+        return model.convertToDomain();
     }
 }
