@@ -1,6 +1,5 @@
-package br.com.bueno.motocompare.controllers;
+package br.com.bueno.motocompare.controllers.requests;
 
-import br.com.bueno.motocompare.model.VeiculoModel;
 import br.com.bueno.motocompare.utils.AbstractObject;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
@@ -8,8 +7,10 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-@Builder
 @Getter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Veiculo extends AbstractObject {
 
     @JsonProperty("id_veiculo")
@@ -38,5 +39,7 @@ public class Veiculo extends AbstractObject {
 
     @JsonProperty("imagem")
     private String imagem;
+
+
 
 }

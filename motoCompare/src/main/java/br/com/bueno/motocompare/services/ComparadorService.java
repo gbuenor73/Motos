@@ -1,6 +1,6 @@
 package br.com.bueno.motocompare.services;
 
-import br.com.bueno.motocompare.controllers.Veiculo;
+import br.com.bueno.motocompare.controllers.requests.Veiculo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,8 +20,8 @@ public class ComparadorService {
         Integer maiorCV = null;
         Integer maiorTorque = null;
 
-        Veiculo veiculoUm = this.veiculosService.buscaVeiculo(veiculo1);
-        Veiculo veiculoDois = this.veiculosService.buscaVeiculo(veiculo2);
+        Veiculo veiculoUm = this.veiculosService.buscaUm(veiculo1);
+        Veiculo veiculoDois = this.veiculosService.buscaUm(veiculo2);
 
         if (veiculoUm.getCilindrada() > veiculoDois.getCilindrada())
             maiorCC = 1;

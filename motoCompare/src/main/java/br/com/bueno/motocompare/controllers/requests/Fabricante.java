@@ -1,4 +1,4 @@
-package br.com.bueno.motocompare.controllers;
+package br.com.bueno.motocompare.controllers.requests;
 
 import br.com.bueno.motocompare.model.FabricanteModel;
 import br.com.bueno.motocompare.utils.AbstractObject;

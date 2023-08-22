@@ -1,6 +1,6 @@
 package br.com.bueno.motocompare.model;
 
-import br.com.bueno.motocompare.controllers.Veiculo;
+import br.com.bueno.motocompare.controllers.requests.Veiculo;
 import br.com.bueno.motocompare.utils.AbstractObject;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -20,7 +20,7 @@ import javax.persistence.Id;
 public class VeiculoModel extends AbstractObject {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idVeiculo;
     private Integer idFabricante;
     private String nomeVeiculo;
